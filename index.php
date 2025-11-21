@@ -2,44 +2,78 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Hero for Hire - Peça Socorro</title>
+    <title>Hero for Hire - Acesso</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #1a1a2e; color: white; }
+        .card { border: none; }
+        .divider { border-left: 1px solid #ccc; }
+    </style>
 </head>
-<body class="bg-light">
+<body>
     <div class="container mt-5">
-        <div class="card shadow">
-            <div class="card-header bg-danger text-white">
-                <h3>🚨 Pedido de Socorro</h3>
-            </div>
-            <div class="card-body">
-                <form action="php/inserir.php" method="POST" onsubmit="return validarFormulario()">
-                    <div class="mb-3">
-                        <label>Seu Nome:</label>
-                        <input type="text" name="nome" id="nome" class="form-control" required>
+        <h1 class="text-center mb-5">🛡️ Hero for Hire</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow-lg text-dark">
+                    <div class="card-body p-5">
+                        <div class="row">
+                            
+                            <div class="col-md-5">
+                                <h3 class="text-primary">Sou Cidadão</h3>
+                                <p>Preciso de ajuda!</p>
+                                <form action="php/login.php" method="POST">
+                                    <input type="hidden" name="tipo" value="civil">
+                                    <div class="mb-3">
+                                        <input type="email" name="email" class="form-control" placeholder="Seu E-mail" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" name="senha" class="form-control" placeholder="Sua Senha" required>
+                                    </div>
+                                    <button class="btn btn-primary w-100">Entrar</button>
+                                </form>
+                                <hr>
+                                <a href="cadastro_civil.php" class="btn btn-outline-primary w-100 btn-sm">Criar conta Cidadão</a>
+                            </div>
+
+                            <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                <div class="vr" style="height: 100%;"></div>
+                            </div>
+
+                            <div class="col-md-5 text-end">
+                                <h3 class="text-danger">Sou Herói</h3>
+                                <p>Quero aceitar missões.</p>
+                                <form action="php/login.php" method="POST">
+                                    <input type="hidden" name="tipo" value="heroi">
+                                    <div class="mb-3">
+                                        <input type="email" name="email" class="form-control text-end" placeholder="E-mail do Herói" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" name="senha" class="form-control text-end" placeholder="Senha Secreta" required>
+                                    </div>
+                                    <button class="btn btn-danger w-100">Acessar QG</button>
+                                </form>
+                                <hr>
+                                <button onclick="verificarCodigoHeroi()" class="btn btn-outline-danger w-100 btn-sm">Recrutamento de Heróis</button>
+                            </div>
+
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label>O que está acontecendo?</label>
-                        <textarea name="descricao" id="descricao" class="form-control" rows="3" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label>Localização:</label>
-                        <input type="text" name="local" class="form-control" required>
-                    </div>
-                    <div class="mb-3">
-                        <label>Nível de Urgência:</label>
-                        <select name="urgencia" class="form-select">
-                            <option value="Baixa">Baixa (Gato na árvore)</option>
-                            <option value="Media">Média (Assalto/Fuga)</option>
-                            <option value="Alta">Alta (Super-vilão)</option>
-                            <option value="Vingadores">Nível Vingadores (Aliens)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-danger w-100">CHAMAR HERÓI!</button>
-                </form>
+                </div>
             </div>
         </div>
-        <a href="mural.php" class="d-block mt-3 text-center">Sou um Herói (Acesso Restrito)</a>
     </div>
-    <script src="js/script.js"></script>
+
+    <script>
+        function verificarCodigoHeroi() {
+            let codigo = prompt("Digite o código de acesso da Agência S.H.I.E.L.D:");
+            if (codigo === "heroi123") {
+                window.location.href = "cadastro_heroi.php";
+            } else {
+                alert("Código incorreto! Acesso negado.");
+            }
+        }
+    </script>
 </body>
 </html>
