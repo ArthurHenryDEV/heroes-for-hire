@@ -2,15 +2,15 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Recrutamento de Heróis</title>
+    <title>Recrutamento de Heróis | Stark Ind.</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stark.css" rel="stylesheet">
 </head>
-<body class="bg-dark text-white">
-    <div class="container mt-5">
+<body> <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card bg-secondary text-white">
-                    <div class="card-header bg-danger">
+                <div class="card">
+                    <div class="card-header">
                         <h3>🦸 Cadastro de Super-Herói</h3>
                     </div>
                     <div class="card-body">
@@ -34,13 +34,21 @@
                             </div>
 
                             <div class="mb-3">
-                                <label>Afiliação (Equipe):</label>
+                                <label>Afiliação:</label>
                                 <select name="afiliacao" class="form-select">
                                     <option value="Solo">Trabalho Sozinho</option>
                                     <option value="Vingadores">Vingadores</option>
-                                    <option value="Liga da Justiça">Liga da Justiça</option>
+                                    <option value="Jovens Vingadores">Jovens Vingadores</option>
+                                    <option value="Quarteto Fantástico">Quarteto Fantástico</option>
                                     <option value="X-Men">X-Men</option>
-                                    <option value="The Boys">The Boys</option>
+                                    <option value="X-Force">X-Force</option>
+                                    <option value="Guardiões da Galáxia">Guardiões da Galáxia</option>
+                                    <option value="Novos Guerreiros">Novos Guerreiros</option>
+                                    <option value="Defensores">Defensores</option>
+                                    <option value="Thunderbolts">Thunderbolts</option>
+                                    <option value="S.H.I.E.L.D">S.H.I.E.L.D</option>
+                                    <option value="S.W.O.R.D">S.W.O.R.D</option>
+                                    <option value="Outros">Outros</option>
                                 </select>
                             </div>
 
@@ -55,12 +63,16 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-warning w-100">Finalizar Cadastro</button>
+                            <button type="submit" class="btn btn-danger w-100">Finalizar Cadastro</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="stark-footer">
+        <p>STARK INDUSTRIES PROPRIETARY NETWORK</p>
+        <p>SYSTEM: J.A.R.V.I.S. v4.0.2 | ACCESS LEVEL: RESTRICTED</p>
     </div>
 </body>
 </html>

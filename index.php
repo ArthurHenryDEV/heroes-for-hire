@@ -2,27 +2,23 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Hero for Hire - Acesso</title>
+    <title>Acesso ao Sistema | Stark Ind.</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body { background-color: #1a1a2e; color: white; }
-        .card { border: none; }
-        .divider { border-left: 1px solid #ccc; }
-    </style>
+    <link href="css/stark.css" rel="stylesheet">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center mb-5">🛡️ Hero for Hire</h1>
+        <h1 class="text-center mb-5">🛡️ Heroes for Hire</h1>
         
         <div class="row justify-content-center">
             <div class="col-md-10">
-                <div class="card shadow-lg text-dark">
+                <div class="card">
                     <div class="card-body p-5">
                         <div class="row">
                             
                             <div class="col-md-5">
-                                <h3 class="text-primary">Sou Cidadão</h3>
-                                <p>Preciso de ajuda!</p>
+                                <h3>Sou Cidadão</h3>
+                                <p class="opacity-75">Preciso de ajuda!</p>
                                 <form action="php/login.php" method="POST">
                                     <input type="hidden" name="tipo" value="civil">
                                     <div class="mb-3">
@@ -33,17 +29,17 @@
                                     </div>
                                     <button class="btn btn-primary w-100">Entrar</button>
                                 </form>
-                                <hr>
-                                <a href="cadastro_civil.php" class="btn btn-outline-primary w-100 btn-sm">Criar conta Cidadão</a>
+                                <hr style="border-color: #2a3b55;">
+                                <a href="cadastro_civil.php" class="btn btn-link text-info w-100 btn-sm">Criar conta Cidadão</a>
                             </div>
 
                             <div class="col-md-2 d-flex align-items-center justify-content-center">
-                                <div class="vr" style="height: 100%;"></div>
+                                <div style="height: 100%; border-left: 1px solid #2a3b55; box-shadow: 0 0 10px cyan;"></div>
                             </div>
 
                             <div class="col-md-5 text-end">
-                                <h3 class="text-danger">Sou Herói</h3>
-                                <p>Quero aceitar missões.</p>
+                                <h3>Sou Herói</h3>
+                                <p class="opacity-75">Acesso Restrito S.H.I.E.L.D.</p>
                                 <form action="php/login.php" method="POST">
                                     <input type="hidden" name="tipo" value="heroi">
                                     <div class="mb-3">
@@ -54,8 +50,8 @@
                                     </div>
                                     <button class="btn btn-danger w-100">Acessar QG</button>
                                 </form>
-                                <hr>
-                                <button onclick="verificarCodigoHeroi()" class="btn btn-outline-danger w-100 btn-sm">Recrutamento de Heróis</button>
+                                <hr style="border-color: #ff3333;">
+                                <button onclick="verificarCodigoHeroi()" class="btn btn-link text-danger w-100 btn-sm">Recrutamento de Heróis</button>
                             </div>
 
                         </div>
@@ -75,5 +71,10 @@
             }
         }
     </script>
+    
+    <div class="stark-footer">
+        <p>STARK INDUSTRIES PROPRIETARY NETWORK</p>
+        <p>SYSTEM: J.A.R.V.I.S. v4.0.2 | ACCESS LEVEL: RESTRICTED</p>
+    </div>
 </body>
 </html>

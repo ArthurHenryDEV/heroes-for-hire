@@ -2,13 +2,16 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Cidadão</title> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Cadastro de Cidadão</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stark.css" rel="stylesheet">
 </head>
-<body class="bg-dark text-white">
-    <div class="container mt-5">
+<body> <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card bg-light text-dark"> <div class="card-header bg-primary text-white"> <h3>🏙️ Cadastro de Cidadão</h3>
+                <div class="card"> 
+                    <div class="card-header"> 
+                        <h3>🏙️ Cadastro de Cidadão</h3>
                     </div>
                     <div class="card-body">
                         <form action="php/registrar_usuario.php" method="POST">
@@ -36,12 +39,17 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100">Finalizar Cadastro</button>
-                            <a href="index.php" class="btn btn-link w-100 mt-2">Já tenho conta (Voltar)</a>
+                            
+                            <a href="index.php" class="btn btn-link w-100 mt-2 text-info">Já tenho conta (Voltar)</a>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="stark-footer">
+        <p>STARK INDUSTRIES PROPRIETARY NETWORK</p>
+        <p>SYSTEM: J.A.R.V.I.S. v4.0.2 | ACCESS LEVEL: RESTRICTED</p>
     </div>
 </body>
 </html>
