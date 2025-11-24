@@ -1,6 +1,11 @@
 <?php
 session_start();
 require 'php/db.php';
+if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'civil') {
+    header("Location: acesso.php");
+    exit;
+}
+
 $nome_usuario = $_SESSION['usuario_nome'] ?? '';
 ?>
 <!DOCTYPE html>
@@ -16,7 +21,10 @@ $nome_usuario = $_SESSION['usuario_nome'] ?? '';
         
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="text-danger" style="text-shadow: 0 0 10px red;">🚨 Canal de Emergência</h2>
-            <a href="index.php" class="btn btn-outline-info btn-sm">Sair do Sistema</a>
+            <div>
+                <a href="historico_civil.php" class="btn btn-outline-primary me-2">📂 Ver Meus Chamados</a>
+                <a href="acesso.php" class="btn btn-outline-danger btn-sm">Sair</a>
+            </div>
         </div>
 
         <div class="row justify-content-center">
@@ -26,14 +34,8 @@ $nome_usuario = $_SESSION['usuario_nome'] ?? '';
                         <h3>Formulário de Solicitação</h3>
                     </div>
                     <div class="card-body">
-                        <form action="php/inserir.php" method="POST" onsubmit="return validarFormulario()">
-                            <?php if (isset($_GET['status']) && $_GET['status'] == 'sucesso'): ?>
-                                <div class="alert alert-success alert-dismissible fade show" role="alert" style="background: rgba(25, 135, 84, 0.2); border: 1px solid #198754; color: #75b798;">
-                                    <strong>Sinal Enviado!</strong> Um herói foi notificado via satélite. Mantenha-se seguro.
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
-                            <?php endif; ?>
-
+                        <form action="php/inserir.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormulario()">
+                            
                             <div class="mb-3">
                                 <label class="form-label text-light">Cidadão Identificado:</label>
                                 <input type="text" name="nome" id="nome" class="form-control" 
@@ -48,6 +50,11 @@ $nome_usuario = $_SESSION['usuario_nome'] ?? '';
                             <div class="mb-3">
                                 <label class="form-label text-light">Coordenadas / Local:</label>
                                 <input type="text" name="local" class="form-control" placeholder="Onde o herói deve pousar?" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-light">Foto do Local (Opcional):</label>
+                                <input type="file" name="foto" class="form-control text-light" accept="image/*">
+                                <div class="form-text text-light opacity-50">Envie uma imagem para auxiliar a equipe tática.</div>
                             </div>
 
                             <div class="mb-3">
@@ -71,9 +78,7 @@ $nome_usuario = $_SESSION['usuario_nome'] ?? '';
             </div>
         </div>
     </div>
-
     <script src="js/script.js"></script>
-    
     <div class="stark-footer">
         <p>STARK INDUSTRIES PROPRIETARY NETWORK</p>
         <p>SYSTEM: J.A.R.V.I.S. v4.0.2 | ACCESS LEVEL: CITIZEN</p>

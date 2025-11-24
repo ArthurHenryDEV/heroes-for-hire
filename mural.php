@@ -1,7 +1,6 @@
 <?php 
 require 'php/db.php'; 
 session_start();
-
 if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'heroi') {
     header("Location: acesso.php");
     exit;
@@ -17,7 +16,6 @@ if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'heroi') {
 </head>
 <body>
     <div class="container mt-5">
-        
         <div class="d-flex justify-content-between align-items-center mb-5">
             <div>
                 <h2 class="text-danger" style="text-shadow: 0 0 10px red;">🛡️ Central de Comando</h2>
@@ -28,7 +26,6 @@ if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'heroi') {
                 <a href="index.php" class="btn btn-outline-danger">Sair</a>
             </div>
         </div>
-
         <?php if (isset($_GET['msg']) && $_GET['msg'] == 'missao_concluida'): ?>
             <div class="alert alert-success border-success text-success bg-opacity-10 bg-success mb-4">
                 <strong>Sucesso!</strong> Missão movida para o Arquivo Morto.
@@ -53,28 +50,36 @@ if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'heroi') {
             ?>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100 <?php echo $borderClass; ?>" style="border-width: 2px;">
-                        <div class="card-body">
+                        <div class="card-body d-flex flex-column">
                             <h5 class="card-title text-uppercase"><?php echo $missao['nivel_urgencia']; ?></h5>
                             <h6 class="card-subtitle mb-2 text-light opacity-75">📍 <?php echo $missao['localizacao']; ?></h6>
-                            <p class="card-text">"<?php echo htmlspecialchars($missao['descricao_problema']); ?>"</p>
-                            
-                            <div class="alert alert-dark p-2 mt-3 mb-3" style="background: rgba(0,0,0,0.3); border: none;">
-                                <small>Solicitante: <?php echo $missao['nome_cidadao']; ?></small>
-                            </div>
-
-                            <?php if ($missao['status'] == 'Pendente'): ?>
-                                <form action="php/atualizar.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $missao['id']; ?>">
-                                    <input type="hidden" name="novo_status" value="Em Andamento">
-                                    <button class="btn btn-warning w-100">Aceitar Missão</button>
-                                </form>
-                            <?php else: ?>
-                                <form action="php/atualizar.php" method="POST">
-                                    <input type="hidden" name="id" value="<?php echo $missao['id']; ?>">
-                                    <input type="hidden" name="novo_status" value="Concluida">
-                                    <button class="btn btn-success w-100">Concluir & Arquivar</button>
-                                </form>
+                            <p class="card-text text-light text-truncate">"<?php echo htmlspecialchars($missao['descricao_problema']); ?>"</p>
+                            <?php if (!empty($missao['foto_ocorrencia'])): ?>
+                                <div class="mb-2 text-info small">
+                                    📷 Contém Imagem Anexada
+                                </div>
                             <?php endif; ?>
+                            <div class="mt-auto">
+                                <div class="alert alert-dark p-2 mt-2 mb-3" style="background: rgba(0,0,0,0.3); border: none;">
+                                    <small class="text-light">Solicitante: <?php echo $missao['nome_cidadao']; ?></small>
+                                </div>
+                                <a href="detalhes_missao.php?id=<?php echo $missao['id']; ?>" class="btn btn-outline-info w-100 mb-2">
+                                    🔍 Ver Detalhes & Foto
+                                </a>
+                                <?php if ($missao['status'] == 'Pendente'): ?>
+                                    <form action="php/atualizar.php" method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $missao['id']; ?>">
+                                        <input type="hidden" name="novo_status" value="Em Andamento">
+                                        <button class="btn btn-warning w-100">Aceitar Missão</button>
+                                    </form>
+                                <?php else: ?>
+                                    <form action="php/atualizar.php" method="POST">
+                                        <input type="hidden" name="id" value="<?php echo $missao['id']; ?>">
+                                        <input type="hidden" name="novo_status" value="Concluida">
+                                        <button class="btn btn-success w-100">Concluir & Arquivar</button>
+                                    </form>
+                                <?php endif; ?>
+                            </div>
                         </div>
                     </div>
                 </div>
