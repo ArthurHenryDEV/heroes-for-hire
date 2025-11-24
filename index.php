@@ -29,15 +29,22 @@
             background-color: rgba(255, 51, 51, 0.05);
         }
         .icon-large { font-size: 4rem; margin-bottom: 20px; }
+        .logo-neon {
+            max-width: 100%; 
+            height: auto; 
+            width: 350px; 
+            filter: drop-shadow(0 0 15px var(--stark-blue));
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
         
-        <div class="text-center mb-5">
-            <h1 style="font-size: 3rem; text-shadow: 0 0 20px var(--stark-blue);">HERO FOR HIRE</h1>
+        <div class="text-center mb-4">
+            <img src="img/logo.jpg" alt="Heroes for Hire Logo" class="logo-neon">
             
-            <p class="text-light" style="letter-spacing: 3px;">STARK INDUSTRIES INITIATIVE</p>
+            <p class="text-light" style="letter-spacing: 3px; margin-top: -10px;">STARK INDUSTRIES INITIATIVE</p>
         </div>
 
         <div class="row w-100 justify-content-center">
