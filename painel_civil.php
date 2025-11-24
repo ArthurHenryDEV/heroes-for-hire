@@ -35,23 +35,23 @@ $nome_usuario = $_SESSION['usuario_nome'] ?? '';
                             <?php endif; ?>
 
                             <div class="mb-3">
-                                <label>Cidadão Identificado:</label>
+                                <label class="form-label text-light">Cidadão Identificado:</label>
                                 <input type="text" name="nome" id="nome" class="form-control" 
                                        value="<?php echo htmlspecialchars($nome_usuario); ?>" readonly required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Descrição da Ameaça:</label>
+                                <label class="form-label text-light">Descrição da Ameaça:</label>
                                 <textarea name="descricao" id="descricao" class="form-control" rows="3" placeholder="Descreva o perigo..." required></textarea>
                             </div>
 
                             <div class="mb-3">
-                                <label>Coordenadas / Local:</label>
+                                <label class="form-label text-light">Coordenadas / Local:</label>
                                 <input type="text" name="local" class="form-control" placeholder="Onde o herói deve pousar?" required>
                             </div>
 
                             <div class="mb-3">
-                                <label>Nível de Ameaça Detectado:</label>
+                                <label class="form-label text-light">Nível de Ameaça Detectado:</label>
                                 <select name="urgencia" id="selectUrgencia" class="form-select" onchange="mudarCorUrgencia()">
                                     <option value="Baixa">Nível 1 - Baixa (Gato, Furto simples)</option>
                                     <option value="Media">Nível 2 - Média (Assalto, Perseguição)</option>
