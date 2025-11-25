@@ -1,10 +1,6 @@
 <?php
 require 'php/db.php';
 session_start();
-if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'heroi') {
-    header("Location: acesso.php");
-    exit;
-}
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     header("Location: mural.php");
     exit;

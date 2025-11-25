@@ -1,10 +1,6 @@
 <?php
 session_start();
 require 'php/db.php';
-if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'civil') {
-    header("Location: acesso.php");
-    exit;
-}
 
 $nome_usuario = $_SESSION['usuario_nome'] ?? '';
 ?>

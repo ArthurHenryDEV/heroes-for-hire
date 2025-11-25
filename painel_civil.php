@@ -1,10 +1,6 @@
 <?php
 session_start();
 require 'php/db.php';
-if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'civil') {
-    header("Location: acesso.php");
-    exit;
-}
 
 $nome_usuario = $_SESSION['usuario_nome'] ?? '';
 ?>
@@ -23,7 +19,7 @@ $nome_usuario = $_SESSION['usuario_nome'] ?? '';
             <h2 class="text-danger" style="text-shadow: 0 0 10px red;">🚨 Canal de Emergência</h2>
             <div>
                 <a href="historico_civil.php" class="btn btn-outline-primary me-2">📂 Ver Meus Chamados</a>
-                <a href="acesso.php" class="btn btn-outline-danger btn-sm">Sair</a>
+                <a href="index.php" class="btn btn-outline-danger btn-sm">Sair</a>
             </div>
         </div>
 

@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $arquivo_tmp = $_FILES['foto']['tmp_name'];
         $nome_original = $_FILES['foto']['name'];
         $extensao = strtolower(pathinfo($nome_original, PATHINFO_EXTENSION));
-        $permitidos = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+        $permitidos = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'heic'];
         
         if (in_array($extensao, $permitidos)) {
             $novo_nome = uniqid() . "." . $extensao;

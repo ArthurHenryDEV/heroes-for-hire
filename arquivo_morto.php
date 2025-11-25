@@ -1,10 +1,6 @@
 <?php 
 require 'php/db.php'; 
 session_start();
-if (!isset($_SESSION['usuario_tipo']) || $_SESSION['usuario_tipo'] != 'heroi') {
-    header("Location: acesso.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
